@@ -32,10 +32,16 @@ RUN mkdir -p $GOPATH/src/github.com/prometheus && \
     tar xf  ${ALERTMANAGER_VERSION}.tar.gz --strip-components=1 && \
     make build
 
-EXPOSE 9093
+RUN useradd -ms /bin/bash alertmanager
 
-WORKDIR $GOPATH/src/github.com/prometheus
+RUN mkdir -p /var/lib/prometheus/alertmanager/data && \
+    chown -R alertmanager: /var/lib/prometheus && \
+    ln -s $GOPATH/src/github.com/prometheus/alertmanager /usr/local/sbin/alertmanager
+
+USER alertmanager
+
+EXPOSE 9093
 
 COPY your_config.yml your_config.yml
 
-CMD ["./alertmanager", "--config.file=your_config.yml"] 
+CMD ["alertmanager", "--config.file=your_config.yml", "--storage.path=/var/lib/prometheus/alertmanager/"] 

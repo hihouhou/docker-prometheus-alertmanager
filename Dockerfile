@@ -12,8 +12,8 @@ MAINTAINER hihouhou < hihouhou@hihouhou.com >
 ENV GOROOT /usr/local/go
 ENV GOPATH /opt/prometheus
 ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
-ENV ALERTMANAGER_VERSION v0.22.0
-ENV GO_VERSION 1.15.2
+ENV ALERTMANAGER_VERSION v0.22.2
+ENV GO_VERSION 1.16.4
 ENV USER ROOT
 
 # Update & install packages for prometheus alertmanager build
@@ -44,4 +44,4 @@ EXPOSE 9093
 
 COPY your_config.yml your_config.yml
 
-CMD ["alertmanager", "--config.file=your_config.yml", "--storage.path=/var/lib/prometheus/alertmanager/"] 
+CMD ["alertmanager", "--config.file=your_config.yml", "--storage.path=/var/lib/prometheus/alertmanager/"]

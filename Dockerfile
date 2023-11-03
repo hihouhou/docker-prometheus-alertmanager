@@ -12,8 +12,8 @@ MAINTAINER hihouhou < hihouhou@hihouhou.com >
 ENV GOROOT /usr/local/go
 ENV GOPATH /opt/prometheus
 ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
-ENV ALERTMANAGER_VERSION v0.25.1
-ENV GO_VERSION 1.16.4
+ENV ALERTMANAGER_VERSION v0.26.0
+ENV GO_VERSION 1.19.13
 ENV USER ROOT
 
 # Update & install packages for prometheus alertmanager build

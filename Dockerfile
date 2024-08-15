@@ -9,16 +9,16 @@ FROM debian:latest
 
 LABEL org.opencontainers.image.authors="hihouhou < hihouhou@hihouhou.com >"
 
-ENV GOROOT /usr/local/go
-ENV GOPATH /opt/prometheus
-ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
-ENV ALERTMANAGER_VERSION v0.27.0
-ENV GO_VERSION 1.19.13
-ENV USER ROOT
+ENV GOROOT=/usr/local/go
+ENV GOPATH=/opt/prometheus
+ENV PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+ENV ALERTMANAGER_VERSION=v0.27.0
+ENV GO_VERSION=1.21.0
+ENV USER=ROOT
 
 # Update & install packages for prometheus alertmanager build
 RUN apt-get update && \
-    apt-get install -y wget git make build-essential curl
+    apt-get install -y wget git make build-essential curl npm
 
 # Get go
 RUN wget https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz && \

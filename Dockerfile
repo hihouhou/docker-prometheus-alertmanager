@@ -13,7 +13,7 @@ ENV GOROOT=/usr/local/go
 ENV GOPATH=/opt/prometheus
 ENV PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 ENV ALERTMANAGER_VERSION=v0.30.1
-ENV GO_VERSION=1.21.0
+ENV GO_VERSION=1.23.0
 ENV USER=ROOT
 
 # Update & install packages for prometheus alertmanager build
@@ -21,7 +21,7 @@ RUN apt-get update && \
     apt-get install -y wget git make build-essential curl npm
 
 # Get go
-RUN wget https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz && \
+RUN wget https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz && \
     tar -xvf go${GO_VERSION}.linux-amd64.tar.gz && \
     mv go /usr/local
 

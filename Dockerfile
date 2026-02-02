@@ -12,7 +12,7 @@ LABEL org.opencontainers.image.authors="hihouhou < hihouhou@hihouhou.com >"
 ENV GOROOT=/usr/local/go
 ENV GOPATH=/opt/prometheus
 ENV PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-ENV ALERTMANAGER_VERSION=v0.30.1
+ENV ALERTMANAGER_VERSION=v0.31.0
 ENV GO_VERSION=1.23.0
 ENV USER=ROOT
 
